@@ -6,6 +6,10 @@ package com.guigu.bigfactory.jvm;
 */
 public class GcRootDemo {
 
+    /***
+     *
+     *
+     * */
     public static void main(String[] args) {
         System.out.println("2022-3-6");
     }
