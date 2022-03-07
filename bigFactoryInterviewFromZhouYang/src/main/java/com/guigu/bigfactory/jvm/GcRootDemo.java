@@ -97,7 +97,48 @@ public class GcRootDemo {
      *打印出来的如果只是"="那就是没有修改过的初始值，如果是":="那就是修改过的。
      *
      * -XX:+PrintCommandLineFlags
+     ***/
+
+    /***
+     * jps -l
+     * jinfo flag
+     *
+     * 上面是窗口，如果是代码里：
+     * //返回Java虚拟机中的内存总量 -Xms    -Xmx3550m -Xms3550m
+     * long totalMemory=Runtime.getRuntime().totalMemory()
+     *
+     * //返回Java虚拟机试图使用的最大内存里
+     * long maxMemory=Runtime.getRuntime().maxMemory()
+     *
+     * ***/
+
+    /***
+     * 常用参数：
+     * -Xms 初始大小内存，默认为物理内存的1/64，等价于 -XX:InitialHeapSize
+     *
+     * -Xmx 最大分配内存，默认为物理内存的1/4，等价于 -XX:MaxHeapSize
+     *
+     * -Xss 设置单个线程栈的大小，一般默认为512k~1024k,等价于 -XX:ThreadStackSize
+     *
+     * -Xmn
+     *
+     * -XX:MetaspaceSize
+     * eg: -Xms10m -Xmx10m -XX:MetaspaceSize=1024m -XX:+PrintFlagsFinal
+     * 设置元空间大小：
+     * 元空间的本质和永久代类似，都是对JVM规范中方法区的实现。不过元空间与永久代之间
+     * 最大区别在于：元空间并不在于虚拟机中，而是使用本地内存。
+     * 因为，默认情况下，元空间大小仅受本地内存限制。但实际上元空间初始值默认很小，比如21M
+     *
+     * 典型案例分析
+     * -XX:+UseSerialGC 串行垃圾回收期
+     * -XX:+UseParallelGC 并行垃圾回收器(jdk8默认的垃圾回收器)
+     *
+     * -XX:+PrintGCDetails
+     *
+     * -XX:SurvivorRatio
+     *
      * **/
+
 
 
 }
