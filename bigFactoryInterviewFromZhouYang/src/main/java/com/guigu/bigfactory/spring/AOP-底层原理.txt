@@ -1,0 +1,46 @@
+/***
+* AOP底层使用动态代理：
+* (1)有接口的情况
+*
+* (2)没接口的情况
+*
+***/
+
+(1)有接口的动态代理，使用JDK动态代理：
+interface UserDao{
+    public void login();
+}
+class UserDaoImpl implements UserDao{
+    public void login(){
+    //登录过程实现
+    }
+}
+
+JDK动态代理如上：
+创建UserDao接口实现类代理对象，增强类的方法
+
+
+(2)没有接口情况，使用CGLIB动态代理
+class User{
+    public void add{....}
+}
+
+//创建User类的子类,然后通过子类来增强方法
+class Person extends User{
+    public void add(){
+        super.add();
+        //增强逻辑
+    }
+}
+
+CGLIB动态代理：
+创建当前类的子类的代理对象
+
+
+
+
+
+
+
+
+
